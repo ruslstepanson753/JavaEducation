@@ -1,9 +1,11 @@
 package com.stepanov.service;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +24,7 @@ public class QuestionService {
         Map<String, String> questionsAndAnswers = new HashMap<>();
         String content = new String(Files.readAllBytes(filePath));
 
-        Pattern questionPattern = Pattern.compile("^##\\s*(.+)$", Pattern.MULTILINE);
+        Pattern questionPattern = Pattern.compile("^#(##\\s*.*)$", Pattern.MULTILINE);
         Matcher questionMatcher = questionPattern.matcher(content);
 
         int prevQuestionEnd = 0;
@@ -78,6 +80,7 @@ public class QuestionService {
                     .replace("+", "-")  // Заменяем + на ...
                     .replace("_", "")      // Удаляем _
                     .replace("__", "")    // Удаляем __
+                    .replace("*", "")    // Удаляем __
                     .replace(">", "");    // Удаляем __
 
             result.append("\t").append(processedLine).append("\n");
@@ -88,7 +91,7 @@ public class QuestionService {
 
     private static Map<String, Map<String, String>> createAllAnswersQuestionsMap() {
         Map<String, Map<String, String>> result = new HashMap<>();
-        String pathInfo = "src/main/resources/info";
+        String pathInfo = "src/main/resources/questions";
         try (Stream<Path> paths = Files.list(Paths.get(pathInfo))) {
             paths.filter(Files::isRegularFile)
                     .forEach(filePath -> {
@@ -131,30 +134,26 @@ public class QuestionService {
 
 
     public static void main(String[] args) {
-        System.out.println(getAnswer("\tЧто такое `finalize()`? Зачем он нужен?"));
-        System.out.println("");
+        String pathInfo = "src/main/resources/info/";
+        allAnsersQuestionsMapByTopic.forEach((topic, questionAnswerMap) -> {
+            Path outputPath = Path.of(pathInfo + topic + ".md");
 
-//        try {
-//            Map<String, String> result = parseDocument("src/main/resources/questions/core.md");
-//
-//            Path outputPath = Paths.get("src/main/resources/questions/core_processed.md");
-//
-//            Files.createDirectories(outputPath.getParent());
-//
-//            try (BufferedWriter writer = Files.newBufferedWriter(outputPath,
-//                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
-//
-//                for (Map.Entry<String, String> entry : result.entrySet()) {
-//                    writer.write("## " + entry.getKey() + "\n");
-//                    writer.write(entry.getValue() + "\n");
-//                }
-//
-//                System.out.println("Результаты успешно записаны в: " + outputPath);
-//            }
-//
-//        } catch (IOException e) {
-//            System.err.println("Ошибка при обработке файла:");
-//            e.printStackTrace();
-//        }
+            try (BufferedWriter writer = Files.newBufferedWriter(
+                    outputPath,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.TRUNCATE_EXISTING
+            )) {
+                questionAnswerMap.forEach((question, answer) -> {
+                    try {
+                        writer.write("## " + question + "\n");
+                        writer.write(answer + "\n\n"); // Extra newline for better readability
+                    } catch (IOException e) {
+                        throw new RuntimeException("Failed to write question: " + question, e);
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to create/write file: " + outputPath, e);
+            }
+        });
     }
 }

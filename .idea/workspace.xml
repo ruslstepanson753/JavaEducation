@@ -4,9 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="2. Parsing done">
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="3. QuestionService done">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/concurrency.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/css.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/db.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/html.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/io.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/java8.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/jcf.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/jdbc.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/jvm.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/kafka.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/log.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/patterns.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/reactive.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/serialization.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/servlets.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/sql.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/test.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/uml.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/web.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/xml.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stepanov/RunApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stepanov/RunApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stepanov/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stepanov/service/QuestionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +57,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.QuestionService.executor": "Run",
+    "Application.QuestionService.executor": "Debug",
     "Application.RunApp.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -115,7 +134,8 @@
       <option name="presentableId" value="Default" />
       <updated>1742939659060</updated>
       <workItem from="1742939660180" duration="5204000" />
-      <workItem from="1743005166000" duration="11548000" />
+      <workItem from="1743005166000" duration="13283000" />
+      <workItem from="1743022900608" duration="4427000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -133,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743011492762</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="3. QuestionService done">
+      <option name="closed" value="true" />
+      <created>1743017111309</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743017111309</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1. Start parsing" />
     <MESSAGE value="2. Parsing done" />
-    <option name="LAST_COMMIT_MESSAGE" value="2. Parsing done" />
+    <MESSAGE value="3. QuestionService done" />
+    <option name="LAST_COMMIT_MESSAGE" value="3. QuestionService done" />
   </component>
 </project>
