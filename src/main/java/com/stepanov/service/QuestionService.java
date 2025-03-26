@@ -1,21 +1,26 @@
 package com.stepanov.service;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class QuestionService {
+    private final static Map<String, Map<String, String>> allAnsersQuestionsMapByTopic = createAllAnswersQuestionsMap();
+    private final static Map<String, String> allAnsersQuestions = getAllAnswersQuestions();
+    private final static Map<String, List<String>> allAnsersByTopic = getAllAnsersMapByTopic();
 
-    public static Map<String, String> parseDocument(String filePath) throws IOException {
+    static Map<String, String> parseDocument(Path filePath) throws IOException {
         Map<String, String> questionsAndAnswers = new HashMap<>();
-        String content = new String(Files.readAllBytes(Paths.get(filePath)));
+        String content = new String(Files.readAllBytes(filePath));
 
         Pattern questionPattern = Pattern.compile("^##\\s*(.+)$", Pattern.MULTILINE);
         Matcher questionMatcher = questionPattern.matcher(content);
@@ -32,8 +37,8 @@ public class QuestionService {
                 questionsAndAnswers.put(prevQuestion, prevAnswer);
             }
 
-            String prevQuestionPre = "\t"+questionMatcher.group(1).trim();
-            prevQuestion= prevQuestionPre
+            String prevQuestionPre = "\t" + questionMatcher.group(1).trim();
+            prevQuestion = prevQuestionPre
                     .replace("_", "")
                     .replace("__", "");
             prevQuestionEnd = questionMatcher.end();
@@ -81,28 +86,75 @@ public class QuestionService {
         return result.toString().replaceAll("\\s+$", "");
     }
 
-    public static void main(String[] args) {
-        try {
-            Map<String, String> result = parseDocument("src/main/resources/questions/oop.md");
-
-            Path outputPath = Paths.get("src/main/resources/questions/oop_processed.md");
-
-            Files.createDirectories(outputPath.getParent());
-
-            try (BufferedWriter writer = Files.newBufferedWriter(outputPath,
-                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
-
-                for (Map.Entry<String, String> entry : result.entrySet()) {
-                    writer.write("## " + entry.getKey() + "\n");
-                    writer.write(entry.getValue() + "\n");
-                }
-
-                System.out.println("Результаты успешно записаны в: " + outputPath);
-            }
-
+    private static Map<String, Map<String, String>> createAllAnswersQuestionsMap() {
+        Map<String, Map<String, String>> result = new HashMap<>();
+        String pathInfo = "src/main/resources/info";
+        try (Stream<Path> paths = Files.list(Paths.get(pathInfo))) {
+            paths.filter(Files::isRegularFile)
+                    .forEach(filePath -> {
+                        String fileName = filePath.getFileName().toString();
+                        String baseName = fileName.replaceFirst("[.][^.]+$", "");
+                        Map<String, String> questionsAndAnswers = new HashMap<>();
+                        try {
+                            questionsAndAnswers = parseDocument(filePath);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        result.put(baseName, questionsAndAnswers);
+                    });
         } catch (IOException e) {
-            System.err.println("Ошибка при обработке файла:");
-            e.printStackTrace();
+            System.err.println("Ошибка при чтении директории: " + e.getMessage());
+        } catch (RuntimeException e) {
+            System.err.println("Ошибка при чтении директории: " + e.getMessage());
         }
+        return result;
+    }
+
+    private static Map<String, String> getAllAnswersQuestions() {
+        Map<String, String> flatMap = new HashMap<>();
+        allAnsersQuestionsMapByTopic.values() // Получаем коллекцию внутренних карт
+                .forEach(innerMap -> flatMap.putAll(innerMap)); // Добавляем все их элементы
+        return flatMap; // Возвращаем заполненную карту
+    }
+
+    private static Map<String, List<String>> getAllAnsersMapByTopic() {
+        return allAnsersQuestionsMapByTopic.entrySet().stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey, // Внешний ключ остается тем же
+                        entry -> new ArrayList<>(entry.getValue().keySet()) // Преобразуем ключи внутренней карты в List
+                ));
+    }
+
+    public static String getAnswer(String question) {
+        return allAnsersQuestions.get(question);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(getAnswer("\tЧто такое `finalize()`? Зачем он нужен?"));
+        System.out.println("");
+
+//        try {
+//            Map<String, String> result = parseDocument("src/main/resources/questions/core.md");
+//
+//            Path outputPath = Paths.get("src/main/resources/questions/core_processed.md");
+//
+//            Files.createDirectories(outputPath.getParent());
+//
+//            try (BufferedWriter writer = Files.newBufferedWriter(outputPath,
+//                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+//
+//                for (Map.Entry<String, String> entry : result.entrySet()) {
+//                    writer.write("## " + entry.getKey() + "\n");
+//                    writer.write(entry.getValue() + "\n");
+//                }
+//
+//                System.out.println("Результаты успешно записаны в: " + outputPath);
+//            }
+//
+//        } catch (IOException e) {
+//            System.err.println("Ошибка при обработке файла:");
+//            e.printStackTrace();
+//        }
     }
 }

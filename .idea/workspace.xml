@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="1. Start parsing">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/questions/oop.md" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="2. Parsing done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stepanov/RunApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stepanov/RunApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stepanov/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stepanov/service/QuestionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +60,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\projects\Java Education\src\main\resources\questions" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\Java Education\src\main\resources\info" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.QuestionService">
     <configuration name="QuestionService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -112,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742939659060</updated>
       <workItem from="1742939660180" duration="5204000" />
-      <workItem from="1743005166000" duration="6228000" />
+      <workItem from="1743005166000" duration="11548000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -122,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742943854999</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2. Parsing done">
+      <option name="closed" value="true" />
+      <created>1743011492762</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743011492762</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,17 +141,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1. Start parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Start parsing" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stepanov/RunApp.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="2. Parsing done" />
+    <option name="LAST_COMMIT_MESSAGE" value="2. Parsing done" />
   </component>
 </project>
