@@ -1,4 +1,4 @@
-package com.stepanov.entity;
+package com.javarush.stepanov.entity;
 
 import java.util.List;
 import java.util.Map;

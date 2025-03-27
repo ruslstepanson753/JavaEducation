@@ -1,4 +1,4 @@
-package com.stepanov.service;
+package com.javarush.stepanov.service;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

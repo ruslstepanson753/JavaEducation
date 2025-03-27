@@ -1,9 +1,6 @@
-package com.stepanov;
-
-import com.stepanov.service.QuestionService;
+package com.javarush.stepanov;
 
 import java.io.IOException;
-import java.util.Map;
 
 public class RunApp {
     public static void main(String[] args) throws IOException {
