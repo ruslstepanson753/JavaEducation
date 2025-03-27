@@ -24,7 +24,7 @@ public class QuestionService {
         Map<String, String> questionsAndAnswers = new HashMap<>();
         String content = new String(Files.readAllBytes(filePath));
 
-        Pattern questionPattern = Pattern.compile("^#(##\\s*.*)$", Pattern.MULTILINE);
+        Pattern questionPattern = Pattern.compile("^##\\s*(.+)$", Pattern.MULTILINE);
         Matcher questionMatcher = questionPattern.matcher(content);
 
         int prevQuestionEnd = 0;
@@ -146,7 +146,7 @@ public class QuestionService {
                 questionAnswerMap.forEach((question, answer) -> {
                     try {
                         writer.write("## " + question + "\n");
-                        writer.write(answer + "\n\n"); // Extra newline for better readability
+                        writer.write(answer + "\n"); // Extra newline for better readability
                     } catch (IOException e) {
                         throw new RuntimeException("Failed to write question: " + question, e);
                     }
