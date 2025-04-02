@@ -58,10 +58,22 @@ public class MainController {
         return "hall-of-fame"; // Возвращает шаблон home.html из папки templates
     }
 
-    @GetMapping(value = "/exit")
-    public String exit(Model model) {
-        model.addAttribute("header", "Главная страница");
-        return "exit"; // Возвращает шаблон home.html из папки templates
+    @GetMapping("/exit")
+    public String exit(HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("userData".equals(cookie.getName())) {
+                    Cookie deleteCookie = new Cookie("userData", "");
+                    deleteCookie.setMaxAge(0); // Удаляем куку
+                    deleteCookie.setPath("/"); // Путь должен совпадать с оригинальной кукой
+                    response.addCookie(deleteCookie);
+                    break;
+                }
+            }
+        }
+        request.getSession().invalidate();
+        return "redirect:/";
     }
 
     @PostMapping("/autentification")
@@ -77,12 +89,20 @@ public class MainController {
     @GetMapping("/")
     public String showAutentificationPage(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
-        if (cookies == null) {
+        if (cookies == null || cookies.length == 0) {
             return "autentification";
-        }else {
-            return "home";
         }
-
+        Cookie userCookie = null;
+        for (Cookie cookie : cookies) {
+            if ("userData".equals(cookie.getName())) {
+                userCookie = cookie;
+                break;
+            }
+        }
+        if (userCookie == null || userCookie.getValue() == null || userCookie.getValue().isEmpty()) {
+            return "autentification";
+        }
+        return "home";
     }
 
     @GetMapping("/registration")

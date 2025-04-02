@@ -2,6 +2,7 @@ package com.javarush.stepanov.service;
 
 import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.repository.UserRepository;
+import com.javarush.stepanov.util.CookieHelp;
 import jakarta.servlet.http.Cookie;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,9 @@ public class AutentificationService {
         if (!password.equals(passwordFromView)) {
             throw new RuntimeException("Wrong password");
         }
-        Cookie cookie = new Cookie(user.getLogin(), password);
+        String nikName = user.getNikName();
+        Long id = user.getId();
+        Cookie cookie = CookieHelp.createCookie(nikName,id);
         return cookie;
     }
 }
