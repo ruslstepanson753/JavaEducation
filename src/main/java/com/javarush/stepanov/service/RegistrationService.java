@@ -3,11 +3,12 @@ package com.javarush.stepanov.service;
 import com.javarush.stepanov.Dto.UserDto;
 import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.repository.UserRepository;
+import com.javarush.stepanov.util.CookieHelp;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
+import jakarta.servlet.http.Cookie;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class RegistrationService {
     @Value("${com.javarush.startTopic}")
     private String startTopic;
 
-    public UserDto register(String login, String password,String nikName) {
+    public Cookie register(String login, String password,String nikName) {
         Map<String, List<String>> questions = questionService.getAllAnswersByTopic();
         Map<String,Integer> questionPositions = questionService.getStartQuestionPositions();
         User user = User.builder()
@@ -32,6 +33,8 @@ public class RegistrationService {
                 .topic(startTopic)
                 .build();
         userRepository.save(user);
-        return UserDto.fromEntity(user);
+        Long id = user.getId();
+        Cookie cookie = CookieHelp.createCookie(nikName,id);
+        return cookie;
     }
 }

@@ -1,9 +1,14 @@
 package com.javarush.stepanov.controllers;
 
-import com.javarush.stepanov.Dto.UserDto;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javarush.stepanov.service.AutentificationService;
 import com.javarush.stepanov.service.RegistrationService;
 import com.javarush.stepanov.service.UserService;
+import com.javarush.stepanov.util.CookieHelp;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +16,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.Map;
+
 @AllArgsConstructor
 @Controller
 public class MainController {
-UserService userService;
-RegistrationService registrationService;
-AutentificationService autentificationService;
+    UserService userService;
+    RegistrationService registrationService;
+    AutentificationService autentificationService;
 
     @GetMapping(value = "/home")
     public String home(Model model) {
@@ -55,14 +65,24 @@ AutentificationService autentificationService;
     }
 
     @PostMapping("/autentification")
-    public String autentification(@RequestParam String login,@RequestParam String password, Model model) {
-        System.out.println(login+password);
+    public String autentification(@RequestParam String login,
+                                  @RequestParam String password,
+                                  HttpServletRequest request,
+                                  HttpServletResponse response)  {
+        Cookie cookie = autentificationService.autentificate(login,password);
+        response.addCookie(cookie);
         return "redirect:/home";
     }
 
     @GetMapping("/")
-    public String showLoginPage(Model model) {
-        return "autentification";
+    public String showAutentificationPage(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies == null) {
+            return "autentification";
+        }else {
+            return "home";
+        }
+
     }
 
     @GetMapping("/registration")
@@ -71,10 +91,14 @@ AutentificationService autentificationService;
     }
 
     @PostMapping("/registration")
-    public String registration(@RequestParam String login,@RequestParam String password,@RequestParam String nikName, Model model) {
-        UserDto userDto = registrationService.register(login, password, nikName);
-        System.out.println(userDto);
+    public String registration(@RequestParam String login, @RequestParam String password, @RequestParam String nikName, HttpServletResponse response) {
+        Cookie cookie = registrationService.register(login, password, nikName);
+        response.addCookie(cookie);
+        Long id = CookieHelp.getUserIdFromCookie(cookie);
+        System.out.println(id);
         return "redirect:/home";
     }
+
+
 
 }
