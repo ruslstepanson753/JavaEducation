@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="6. Spring DB connect">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="7. MVC start">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/exit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hall-of-fame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/run.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/settings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/statistic.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/ApplicationProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/SessionCreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -71,6 +65,7 @@
     "Application.QuestionService.executor": "Debug",
     "Application.RunApp.executor": "Debug",
     "Application.com.javarush.stepanov.service.QuestionService.executor": "Debug",
+    "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -106,6 +101,7 @@
       <recent name="C:\projects\Java Education\src\main\resources\questions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\Java Education\src\main\resources\templates" />
       <recent name="C:\projects\Java Education\src\main\resources\info" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -201,7 +197,7 @@
       <workItem from="1743022900608" duration="4746000" />
       <workItem from="1743105618966" duration="2125000" />
       <workItem from="1743350327228" duration="1350000" />
-      <workItem from="1743584022086" duration="8143000" />
+      <workItem from="1743584022086" duration="9678000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -251,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743117000838</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="7. MVC start">
+      <option name="closed" value="true" />
+      <created>1743592210468</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743592210468</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +279,7 @@
     <MESSAGE value="4. Pars all" />
     <MESSAGE value="5. Pars all works" />
     <MESSAGE value="6. Spring DB connect" />
-    <option name="LAST_COMMIT_MESSAGE" value="6. Spring DB connect" />
+    <MESSAGE value="7. MVC start" />
+    <option name="LAST_COMMIT_MESSAGE" value="7. MVC start" />
   </component>
 </project>
