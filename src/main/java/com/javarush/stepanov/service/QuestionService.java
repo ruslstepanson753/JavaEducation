@@ -1,8 +1,11 @@
 package com.javarush.stepanov.service;
 
-import lombok.AllArgsConstructor;
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,21 +18,24 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 @Service
-@AllArgsConstructor
 public class QuestionService {
-    private final  Map<String, Map<String, String>> allAnswersQuestionsMapByTopic;
-    private final  Map<String, String> allAnswersQuestions;
+    private  Map<String, Map<String, String>> allAnswersQuestionsMapByTopic;
+    private  Map<String, String> allAnswersQuestions;
     @Getter
-    private final  Map<String, List<String>> allAnswersByTopic;
+    private  Map<String, List<String>> allAnswersByTopic;
+    private  String questionsPath ;
 
-    public QuestionService(){
+    public QuestionService(@Value("${com.javarush.questionsPath}") String questionsPath) {
+        this.questionsPath = questionsPath;
+    }
+
+    @PostConstruct
+    public void init(){
         allAnswersQuestionsMapByTopic = createAllAnswersQuestionsMapByTopic();
         allAnswersQuestions = createAllAnswersQuestions();
         allAnswersByTopic = createAllAnsersMapByTopic();
     }
-
 
     private Map<String, String> parseDocument(Path filePath) throws IOException {
         Map<String, String> questionsAndAnswers = new HashMap<>();
@@ -64,10 +70,10 @@ public class QuestionService {
         return questionsAndAnswers;
     }
 
-    private  Map<String, Map<String, String>> createAllAnswersQuestionsMapByTopic() {
+    private Map<String, Map<String, String>> createAllAnswersQuestionsMapByTopic() {
         Map<String, Map<String, String>> result = new HashMap<>();
-        String pathInfo = "src/main/resources/questions";
-        try (Stream<Path> paths = Files.list(Paths.get(pathInfo))) {
+
+        try (Stream<Path> paths = Files.list(Paths.get(questionsPath))) {
             paths.filter(Files::isRegularFile)
                     .forEach(filePath -> {
                         String fileName = filePath.getFileName().toString();
@@ -88,14 +94,14 @@ public class QuestionService {
         return result;
     }
 
-    private  Map<String, String> createAllAnswersQuestions() {
+    private Map<String, String> createAllAnswersQuestions() {
         Map<String, String> flatMap = new HashMap<>();
         allAnswersQuestionsMapByTopic.values() // Получаем коллекцию внутренних карт
                 .forEach(innerMap -> flatMap.putAll(innerMap)); // Добавляем все их элементы
         return flatMap; // Возвращаем заполненную карту
     }
 
-    private  Map<String, List<String>> createAllAnsersMapByTopic() {
+    private Map<String, List<String>> createAllAnsersMapByTopic() {
         return allAnswersQuestionsMapByTopic.entrySet().stream()
                 .collect(Collectors.toMap(
                         Map.Entry::getKey, // Внешний ключ остается тем же
@@ -107,8 +113,4 @@ public class QuestionService {
         return allAnswersQuestions.get(question);
     }
 
-
-    public static void main(String[] args) {
-        System.out.println();
-    }
 }

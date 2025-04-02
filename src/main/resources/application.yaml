@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: lesson07
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+
+com:
+  javarush:
+    questionsPath: src/main/resources/questions

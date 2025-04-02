@@ -12,11 +12,10 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserService {
 
-    @Autowired
     private final UserRepository userRepository;
 
     public User getUserById(Long id) {
-        Optional<User> user = userRepository.getByIdFromRepo(id);
+        Optional<User> user = userRepository.findById(id);
         return user.orElseThrow();
     }
 

@@ -4,44 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="5. Pars all works">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/ApplicationProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/SessionCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/SpringConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/JsonbConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/init.sql" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="6. Spring DB connect">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/RunApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/ApplicationProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/SessionCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/concurrency.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/core.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/css.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/db.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/html.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/io.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/java8.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/jcf.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/jdbc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/jvm.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/kafka.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/log.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/oop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/patterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/reactive.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/serialization.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/servlets.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/sql.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/test.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/uml.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/web.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questions/xml.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +41,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ruslstepanson753&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ruslstepanson753/JavaEducation.git&quot;,
+    &quot;accountId&quot;: &quot;304f5923-aa98-42df-83eb-920dc92c8a9f&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -81,11 +71,16 @@
     "Application.QuestionService.executor": "Debug",
     "Application.RunApp.executor": "Debug",
     "Application.com.javarush.stepanov.service.QuestionService.executor": "Debug",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.Application.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/Java Education/src/main/java/com/javarush/stepanov",
+    "last_opened_file_path": "C:/projects/Java Education/src/main/resources/templates/blocks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -104,8 +99,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\Java Education\src\main\java\com\javarush\stepanov" />
+      <recent name="C:\projects\Java Education\src\main\resources\templates\blocks" />
+      <recent name="C:\projects\Java Education\src\main\resources\templates" />
       <recent name="C:\projects\Java Education\src\main\resources" />
+      <recent name="C:\projects\Java Education\src\main\java\com\javarush\stepanov" />
       <recent name="C:\projects\Java Education\src\main\resources\questions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -115,7 +112,7 @@
       <recent name="com.javarush.stepanov" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.javarush.stepanov.Application" />
       <module name="java-education" />
@@ -142,19 +139,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stepanov.RunApp" />
-      <module name="java-education" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.stepanov.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="com.javarush.stepanov.service.QuestionService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.javarush.stepanov.service.QuestionService" />
       <module name="java-education" />
@@ -173,13 +157,26 @@
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="java-education" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.javarush.stepanov.Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.javarush.stepanov.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Application" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Database Script.init.sql" />
         <item itemvalue="Application.com.javarush.stepanov.service.QuestionService" />
         <item itemvalue="Application.QuestionService" />
-        <item itemvalue="Application.RunApp" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +200,8 @@
       <workItem from="1743005166000" duration="13283000" />
       <workItem from="1743022900608" duration="4746000" />
       <workItem from="1743105618966" duration="2125000" />
+      <workItem from="1743350327228" duration="1350000" />
+      <workItem from="1743584022086" duration="8143000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -244,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743109775643</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="6. Spring DB connect">
+      <option name="closed" value="true" />
+      <created>1743117000838</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743117000838</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,17 +274,7 @@
     <MESSAGE value="3. QuestionService done" />
     <MESSAGE value="4. Pars all" />
     <MESSAGE value="5. Pars all works" />
-    <option name="LAST_COMMIT_MESSAGE" value="5. Pars all works" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="6. Spring DB connect" />
+    <option name="LAST_COMMIT_MESSAGE" value="6. Spring DB connect" />
   </component>
 </project>
