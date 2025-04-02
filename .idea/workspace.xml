@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="7. MVC header works">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/autentification.html" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="8. MVC autentification form">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/IntegerMapJsonConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AutentificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/config/AppConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/JsonbConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/StringListJsonConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/autentification.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/autentification.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,6 +73,8 @@
     "Application.RunApp.executor": "Debug",
     "Application.com.javarush.stepanov.service.QuestionService.executor": "Debug",
     "DefaultHtmlFileTemplate": "HTML File",
+    "Maven.java-education [clean].executor": "Run",
+    "Maven.java-education [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -192,7 +206,8 @@
       <workItem from="1743022900608" duration="4746000" />
       <workItem from="1743105618966" duration="2125000" />
       <workItem from="1743350327228" duration="1350000" />
-      <workItem from="1743584022086" duration="13187000" />
+      <workItem from="1743584022086" duration="23133000" />
+      <workItem from="1743614800776" duration="851000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -258,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743593795633</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="8. MVC autentification form">
+      <option name="closed" value="true" />
+      <created>1743597392686</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743597392686</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +307,8 @@
     <MESSAGE value="6. Spring DB connect" />
     <MESSAGE value="7. MVC start" />
     <MESSAGE value="7. MVC header works" />
-    <option name="LAST_COMMIT_MESSAGE" value="7. MVC header works" />
+    <MESSAGE value="8. MVC login form" />
+    <MESSAGE value="8. MVC autentification form" />
+    <option name="LAST_COMMIT_MESSAGE" value="8. MVC autentification form" />
   </component>
 </project>

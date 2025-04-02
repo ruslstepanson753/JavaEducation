@@ -18,23 +18,22 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 @Service
 public class QuestionService {
-    private  Map<String, Map<String, String>> allAnswersQuestionsMapByTopic;
-    private  Map<String, String> allAnswersQuestions;
-    @Getter
-    private  Map<String, List<String>> allAnswersByTopic;
-    private  String questionsPath ;
+    private final Map<String, Map<String, String>> allAnswersQuestionsMapByTopic;
+    private final Map<String, String> allAnswersQuestions;
+    private final   Map<String, List<String>> allAnswersByTopic;
+    private final   String questionsPath ;
+    private final  Integer startAnswerPosition;
 
-    public QuestionService(@Value("${com.javarush.questionsPath}") String questionsPath) {
+    public QuestionService(@Value("${com.javarush.questionsPath}") String questionsPath,
+                           @Value("${com.javarush.startAnswerPosition}") int startAnswerPosition) {
         this.questionsPath = questionsPath;
-    }
-
-    @PostConstruct
-    public void init(){
+        this.startAnswerPosition = Integer.valueOf(startAnswerPosition);
         allAnswersQuestionsMapByTopic = createAllAnswersQuestionsMapByTopic();
-        allAnswersQuestions = createAllAnswersQuestions();
         allAnswersByTopic = createAllAnsersMapByTopic();
+        allAnswersQuestions = createAllAnswersQuestions();
     }
 
     private Map<String, String> parseDocument(Path filePath) throws IOException {
@@ -113,4 +112,14 @@ public class QuestionService {
         return allAnswersQuestions.get(question);
     }
 
+    public Map<String, Integer> getStartQuestionPositions() {
+        Map<String, Integer> result = new HashMap<>();
+        allAnswersQuestionsMapByTopic.keySet().stream().forEach(a->result.put(a, startAnswerPosition));
+        return result;
+    }
+
+    public Map<String, List<String>> getAllAnswersByTopic() {
+        Map<String, List<String>>  result = new HashMap<>(allAnswersByTopic);
+        return result;
+    }
 }

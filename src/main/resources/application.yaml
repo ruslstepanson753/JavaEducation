@@ -1,6 +1,6 @@
 spring:
   application:
-    name: lesson07
+    name: java-education
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -12,3 +12,5 @@ spring:
 com:
   javarush:
     questionsPath: src/main/resources/questions
+    startAnswerPosition: 0
+    startTopic: core

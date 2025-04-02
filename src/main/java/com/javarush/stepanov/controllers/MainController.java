@@ -1,13 +1,22 @@
 package com.javarush.stepanov.controllers;
 
+import com.javarush.stepanov.Dto.UserDto;
+import com.javarush.stepanov.service.AutentificationService;
+import com.javarush.stepanov.service.RegistrationService;
+import com.javarush.stepanov.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+@AllArgsConstructor
 @Controller
 public class MainController {
+UserService userService;
+RegistrationService registrationService;
+AutentificationService autentificationService;
 
     @GetMapping(value = "/home")
     public String home(Model model) {
@@ -54,6 +63,18 @@ public class MainController {
     @GetMapping("/")
     public String showLoginPage(Model model) {
         return "autentification";
+    }
+
+    @GetMapping("/registration")
+    public String showRegistrationPage() {
+        return "registration"; // предполагается, что у вас есть registration.html
+    }
+
+    @PostMapping("/registration")
+    public String registration(@RequestParam String login,@RequestParam String password,@RequestParam String nikName, Model model) {
+        UserDto userDto = registrationService.register(login, password, nikName);
+        System.out.println(userDto);
+        return "redirect:/home";
     }
 
 }

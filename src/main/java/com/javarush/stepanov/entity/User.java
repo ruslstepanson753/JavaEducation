@@ -1,13 +1,13 @@
 package com.javarush.stepanov.entity;
 
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.Type;
+import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.type.SqlTypes;
-
 import java.util.List;
 import java.util.Map;
+
+import org.hibernate.annotations.Type;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @Getter
@@ -25,11 +25,11 @@ public class User {
     private String password;
     private String nikName;
 
-    @Convert(converter = JsonbConverter.class)
+    @Type(JsonType.class)
     @Column(columnDefinition = "jsonb")
     private Map<String, List<String>> questions;
 
-    @Convert(converter = JsonbConverter.class)
+    @Type(JsonType.class)
     @Column(columnDefinition = "jsonb")
     private Map<String, Integer> questionPositions;
 
