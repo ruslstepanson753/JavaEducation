@@ -3,10 +3,13 @@ package com.javarush.stepanov.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class MainController {
 
-    @GetMapping(value = {"/", "/home"})
+    @GetMapping(value = "/home")
     public String home(Model model) {
         model.addAttribute("header", "Главная страница");
         return "home"; // Возвращает шаблон home.html из папки templates
@@ -40,6 +43,17 @@ public class MainController {
     public String exit(Model model) {
         model.addAttribute("header", "Главная страница");
         return "exit"; // Возвращает шаблон home.html из папки templates
+    }
+
+    @PostMapping("/autentification")
+    public String autentification(@RequestParam String login,@RequestParam String password, Model model) {
+        System.out.println(login+password);
+        return "redirect:/home";
+    }
+
+    @GetMapping("/")
+    public String showLoginPage(Model model) {
+        return "autentification";
     }
 
 }
