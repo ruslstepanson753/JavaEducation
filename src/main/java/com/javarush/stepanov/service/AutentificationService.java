@@ -7,10 +7,13 @@ import jakarta.servlet.http.Cookie;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import jakarta.servlet.http.Cookie;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class AutentificationService {
     UserRepository userRepository;
     public Cookie autentificate(String login, String passwordFromView) {

@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="8. MVC autentification">
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="8. MVC exit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/AutentificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/ExitController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/RegistrationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/RunController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AutentificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AutentificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/run.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/run.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +201,7 @@
       <workItem from="1743105618966" duration="2125000" />
       <workItem from="1743350327228" duration="1350000" />
       <workItem from="1743584022086" duration="23133000" />
-      <workItem from="1743614800776" duration="12520000" />
+      <workItem from="1743614800776" duration="14397000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -285,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743627834546</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="8. MVC exit">
+      <option name="closed" value="true" />
+      <created>1743629359442</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743629359442</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +329,7 @@
     <MESSAGE value="8. MVC autentification form" />
     <MESSAGE value="8. MVC autorization save" />
     <MESSAGE value="8. MVC autentification" />
-    <option name="LAST_COMMIT_MESSAGE" value="8. MVC autentification" />
+    <MESSAGE value="8. MVC exit" />
+    <option name="LAST_COMMIT_MESSAGE" value="8. MVC exit" />
   </component>
 </project>

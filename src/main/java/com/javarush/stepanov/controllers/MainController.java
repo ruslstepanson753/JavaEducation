@@ -24,20 +24,11 @@ import java.util.Map;
 @AllArgsConstructor
 @Controller
 public class MainController {
-    UserService userService;
-    RegistrationService registrationService;
-    AutentificationService autentificationService;
 
     @GetMapping(value = "/home")
     public String home(Model model) {
         model.addAttribute("header", "Главная страница");
         return "home"; // Возвращает шаблон home.html из папки templates
-    }
-
-    @GetMapping(value = "/run")
-    public String run(Model model) {
-        model.addAttribute("header", "Главная страница");
-        return "run"; // Возвращает шаблон home.html из папки templates
     }
 
     @GetMapping(value = "/settings")
@@ -57,68 +48,5 @@ public class MainController {
         model.addAttribute("header", "Главная страница");
         return "hall-of-fame"; // Возвращает шаблон home.html из папки templates
     }
-
-    @GetMapping("/exit")
-    public String exit(HttpServletRequest request, HttpServletResponse response) {
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("userData".equals(cookie.getName())) {
-                    Cookie deleteCookie = new Cookie("userData", "");
-                    deleteCookie.setMaxAge(0); // Удаляем куку
-                    deleteCookie.setPath("/"); // Путь должен совпадать с оригинальной кукой
-                    response.addCookie(deleteCookie);
-                    break;
-                }
-            }
-        }
-        request.getSession().invalidate();
-        return "redirect:/";
-    }
-
-    @PostMapping("/autentification")
-    public String autentification(@RequestParam String login,
-                                  @RequestParam String password,
-                                  HttpServletRequest request,
-                                  HttpServletResponse response)  {
-        Cookie cookie = autentificationService.autentificate(login,password);
-        response.addCookie(cookie);
-        return "redirect:/home";
-    }
-
-    @GetMapping("/")
-    public String showAutentificationPage(HttpServletRequest request) {
-        Cookie[] cookies = request.getCookies();
-        if (cookies == null || cookies.length == 0) {
-            return "autentification";
-        }
-        Cookie userCookie = null;
-        for (Cookie cookie : cookies) {
-            if ("userData".equals(cookie.getName())) {
-                userCookie = cookie;
-                break;
-            }
-        }
-        if (userCookie == null || userCookie.getValue() == null || userCookie.getValue().isEmpty()) {
-            return "autentification";
-        }
-        return "home";
-    }
-
-    @GetMapping("/registration")
-    public String showRegistrationPage() {
-        return "registration"; // предполагается, что у вас есть registration.html
-    }
-
-    @PostMapping("/registration")
-    public String registration(@RequestParam String login, @RequestParam String password, @RequestParam String nikName, HttpServletResponse response) {
-        Cookie cookie = registrationService.register(login, password, nikName);
-        response.addCookie(cookie);
-        Long id = CookieHelp.getUserIdFromCookie(cookie);
-        System.out.println(id);
-        return "redirect:/home";
-    }
-
-
 
 }

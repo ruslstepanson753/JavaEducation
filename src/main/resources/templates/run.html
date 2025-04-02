@@ -1,10 +1,71 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
-<header th:insert="blocks/header :: header"></header>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Run</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
+<div th:insert="blocks/header :: header"></div>
+
 <div class="container mt-5">
-    <h1>run</h1>
+    <!-- 1 строка: саморасширяемое поле с текстом вопроса -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text" th:text="${session.question} ?: 'Вопрос не задан'"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2 строка: кнопка "написать ответ" с раскрывающимся полем -->
+    <div class="row mb-4">
+        <div class="col">
+            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#answerInput">
+                Написать ответ
+            </button>
+            <div class="collapse mt-2" id="answerInput">
+                <textarea class="form-control" rows="3" placeholder="Введите ваш ответ..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 строка: кнопка "получить ответ" с раскрывающимся текстом -->
+    <div class="row mb-4">
+        <div class="col">
+            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#answerOutput">
+                Получить ответ
+            </button>
+            <div class="collapse mt-2" id="answerOutput">
+                <div class="card card-body" th:text="${session.answer} ?: 'Ответ не доступен'"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4 строка: кнопки оценки ответа -->
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            <!-- Красная кнопка "Плохо знаю" -->
+            <form th:action="@{/run}" method="post">
+                <input type="hidden" name="good-answer" value="false">
+                <button type="submit" class="btn btn-danger w-100">Плохо знаю</button>
+            </form>
+        </div>
+        <div class="col-md-6 mb-2">
+            <!-- Зеленая кнопка "Хорошо знаю" -->
+            <form th:action="@{/run}" method="post">
+                <input type="hidden" name="good-answer" value="true">
+                <button type="submit" class="btn btn-success w-100">Хорошо знаю</button>
+            </form>
+        </div>
+    </div>
 </div>
-<body>
-<footer th:insert="blocks/footer :: footer"></footer>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+<!-- Подключаем Bootstrap JS для работы collapse -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
