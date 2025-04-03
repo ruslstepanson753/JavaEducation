@@ -16,13 +16,10 @@ public class ExitController {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if ("userData".equals(cookie.getName())) {
-                    Cookie deleteCookie = new Cookie("userData", "");
-                    deleteCookie.setMaxAge(0);
-                    deleteCookie.setPath("/");
-                    response.addCookie(deleteCookie);
-                    break;
-                }
+                cookie.setValue("");
+                cookie.setPath("/");
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
             }
         }
         request.getSession().invalidate();

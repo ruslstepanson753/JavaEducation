@@ -1,18 +1,13 @@
 package com.javarush.stepanov.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javarush.stepanov.Dto.UserDto;
 import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.repository.UserRepository;
-import jakarta.servlet.http.Cookie;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.Base64;
-import java.nio.charset.StandardCharsets;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -22,6 +17,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final QuestionService questionService;
 
     public UserDto getUserById(Long id) {
         Optional<User> user = userRepository.findById(id);
@@ -36,5 +32,18 @@ public class UserService {
                 '}';
     }
 
+    public Map.Entry<String, String> getQuestionAnswerSetById(Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        User user = userOptional.orElseThrow();
+        String topic = user.getTopic();
+        Map<String, Integer> questionPositions = user.getQuestionPositions();
+        Map<String, List<String>> questions = user.getQuestions();
 
+        List<String> questionList = questions.get(topic);
+        int questionPosition = questionPositions.get(topic).intValue();
+        String question = questionList.get(questionPosition);
+        String answer = questionService.getAnswer(question);
+        Map.Entry<String, String> result = Map.entry(question, answer);
+        return result;
+    }
 }

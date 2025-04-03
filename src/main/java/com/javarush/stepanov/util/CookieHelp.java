@@ -7,6 +7,7 @@ import jakarta.servlet.http.Cookie;
 import lombok.experimental.UtilityClass;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,6 @@ public class CookieHelp {
                 }
             }
         }
-
         return null;
     }
 
@@ -49,5 +49,16 @@ public class CookieHelp {
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Failed to create user cookie", e);
         }
+    }
+
+    public static Long getUserIdFromCookies(Cookie[] cookies) {
+        if (cookies == null || cookies.length == 0) {
+            throw new IllegalStateException("Куки не найдены");
+        }
+        Cookie userDataCookie = Arrays.stream(cookies)
+                .filter(c -> "userData".equals(c.getName()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Кука userData не найдена"));
+        return getUserIdFromCookie(userDataCookie);
     }
 }

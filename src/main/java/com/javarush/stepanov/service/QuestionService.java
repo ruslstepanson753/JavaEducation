@@ -45,28 +45,29 @@ public class QuestionService {
 
         int prevQuestionEnd = 0;
         String prevQuestion = null;
-        String prevAnswer = null;
 
         while (questionMatcher.find()) {
             if (prevQuestion != null) {
-                // Извлекаем ответ между предыдущим вопросом и текущим
-                prevAnswer = content.substring(prevQuestionEnd, questionMatcher.start()).trim();
-                questionsAndAnswers.put(prevQuestion, prevAnswer);
+                String answer = content.substring(prevQuestionEnd, questionMatcher.start());
+                // Сохраняем все пробельные символы и преобразуем в HTML-формат
+                questionsAndAnswers.put(prevQuestion, formatTextWithIndentation(answer));
             }
 
-            String prevQuestionPre = "\t" + questionMatcher.group(1).trim();
-            prevQuestion = prevQuestionPre
-                    .replace("_", "")
-                    .replace("__", "");
+            prevQuestion = "\t" + questionMatcher.group(1).trim();
             prevQuestionEnd = questionMatcher.end();
         }
 
         if (prevQuestion != null) {
-            prevAnswer = content.substring(prevQuestionEnd).trim();
-            questionsAndAnswers.put(prevQuestion, prevAnswer);
+            String answer = content.substring(prevQuestionEnd);
+            questionsAndAnswers.put(prevQuestion, formatTextWithIndentation(answer));
         }
 
         return questionsAndAnswers;
+    }
+
+    private String formatTextWithIndentation(String text) {
+        String withTabs = text.replace("\t", "&emsp;&emsp;");
+        return withTabs.replace("\n", "<br>");
     }
 
     private Map<String, Map<String, String>> createAllAnswersQuestionsMapByTopic() {
