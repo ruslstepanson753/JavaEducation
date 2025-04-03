@@ -1,10 +1,39 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
-<header th:insert="blocks/header :: header"></header>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
+<div th:insert="blocks/header :: header"></div>
+
 <div class="container mt-5">
-    <h1>settings</h1>
+    <h1 class="mb-4">Настройкa темы c вопросами</h1>
+
+    <form id="topicForm" th:action="@{/settings}" method="post">
+        <div class="row mb-3" th:each="topicItem : ${topicSet}">
+            <div class="col-md-6 d-flex align-items-center">
+                <label th:text="${topicItem}" class="form-label mb-0"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-check form-switch">
+                    <input class="form-check-input topic-switch"
+                           type="radio"
+                           name="topic"
+                           th:id="${'topic_' + topicItem}"
+                           th:value="${topicItem}"
+                           th:checked="${topicItem == topic}"
+                           onchange="document.getElementById('topicForm').submit()">
+                    <label class="form-check-label" th:for="${'topic_' + topicItem}"></label>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-<body>
-<footer th:insert="blocks/footer :: footer"></footer>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

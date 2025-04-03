@@ -15,11 +15,7 @@ public class MainController {
         return "home"; // Возвращает шаблон home.html из папки templates
     }
 
-    @GetMapping(value = "/settings")
-    public String settings(Model model) {
-        model.addAttribute("header", "Главная страница");
-        return "settings"; // Возвращает шаблон home.html из папки templates
-    }
+
 
     @GetMapping(value = "/statistic")
     public String statistic(Model model) {

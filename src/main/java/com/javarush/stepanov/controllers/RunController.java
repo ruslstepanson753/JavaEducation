@@ -15,7 +15,7 @@ import java.util.Map;
 @Slf4j
 @AllArgsConstructor
 @Controller
-public class RunController {
+public class RunController extends AbstractUserController{
     UserService userService;
 
     @GetMapping("/run")
@@ -35,10 +35,6 @@ public class RunController {
         return "redirect:/run";
     }
 
-    private Long getUserId(HttpServletRequest request) {
-        Cookie[] cookies = request.getCookies();
-        Long userId = CookieHelp.getUserIdFromCookies(cookies);
-        return userId;
-    }
+
 
 }
