@@ -9,9 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.AbstractController;
 
-import java.util.Set;
+import java.util.Map;
 
 @AllArgsConstructor
 @Controller
@@ -22,10 +21,10 @@ public class SettingsController extends AbstractUserController {
     @GetMapping("/settings")
     public String settings(HttpServletRequest request, Model model) {
         Long id = getUserId(request);
-        Set<String> topicSet = questionService.getTopicSet();
+        Map<String,Integer> topicSet = userService.getTopicMap(id);
         String currentTopic = userService.getTopicById(id);
 
-        model.addAttribute("topicSet", topicSet);
+        model.addAttribute("topicMap", topicSet);
         model.addAttribute("topic", currentTopic);
         return "settings";
     }

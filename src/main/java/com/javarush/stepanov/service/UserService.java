@@ -115,4 +115,13 @@ public class UserService {
         user.setTopic(topic);
         userRepository.save(user);
     }
+
+    public Map<String,Integer> getTopicMap(Long id){
+        User user = getUser(id);
+        Map<String,Integer> result = new HashMap<>();
+        Map<String,List<String>> questions = user.getQuestions();
+        for(Map.Entry<String,List<String>> entry : questions.entrySet()){
+            result.put(entry.getKey(), entry.getValue().size());}
+        return result;
+    }
 }

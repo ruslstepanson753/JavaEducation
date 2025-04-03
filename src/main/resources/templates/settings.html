@@ -9,23 +9,38 @@
 <div th:insert="blocks/header :: header"></div>
 
 <div class="container mt-5">
-    <h1 class="mb-4">Настройкa темы c вопросами</h1>
+    <h1 class="mb-4">Настройка темы с вопросами</h1>
 
     <form id="topicForm" th:action="@{/settings}" method="post">
-        <div class="row mb-3" th:each="topicItem : ${topicSet}">
-            <div class="col-md-6 d-flex align-items-center">
-                <label th:text="${topicItem}" class="form-label mb-0"></label>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <h5>Наименование темы</h5>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4 text-center">
+                <h5>Число оставшихся вопросов</h5>
+            </div>
+            <div class="col-md-4">
+                <h5>Выбор темы</h5>
+            </div>
+        </div>
+
+        <div class="row mb-3" th:each="topicItem : ${topicMap}">
+            <div class="col-md-4 d-flex align-items-center">
+                <label th:text="${topicItem.key}" class="form-label mb-0"></label>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <span th:text="${topicItem.value}" class="form-label mb-0"></span>
+            </div>
+            <div class="col-md-4">
                 <div class="form-check form-switch">
                     <input class="form-check-input topic-switch"
                            type="radio"
                            name="topic"
-                           th:id="${'topic_' + topicItem}"
-                           th:value="${topicItem}"
-                           th:checked="${topicItem == topic}"
+                           th:id="${'topic_' + topicItem.key}"
+                           th:value="${topicItem.key}"
+                           th:checked="${topicItem.key == topic}"
                            onchange="document.getElementById('topicForm').submit()">
-                    <label class="form-check-label" th:for="${'topic_' + topicItem}"></label>
+                    <label class="form-check-label" th:for="${'topic_' + topicItem.key}"></label>
                 </div>
             </div>
         </div>

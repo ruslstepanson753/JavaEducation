@@ -1,9 +1,7 @@
 package com.javarush.stepanov.service;
 
-import jakarta.annotation.PostConstruct;
-import lombok.Getter;
+
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -121,7 +119,10 @@ public class QuestionService {
         return result;
     }
 
-    public Set<String> getTopicSet(){
-        return allAnswersByTopic.keySet();
+    public Map<String,Integer> getTopicMap(){
+        Map<String,Integer> result = new HashMap<>();
+        for(Map.Entry<String,List<String>> entry : allAnswersByTopic.entrySet()){
+            result.put(entry.getKey(), entry.getValue().size());}
+        return result;
     }
 }
