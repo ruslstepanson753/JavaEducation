@@ -1,16 +1,17 @@
 package com.javarush.stepanov.service;
 
-import com.javarush.stepanov.Dto.UserDto;
 import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -82,7 +83,9 @@ public class UserService {
         Map<String, List<String>> questions = user.getQuestions();
         List<String> questionList = questions.get(topic);
         Map<String, Integer> questionPositions = user.getQuestionPositions();
-
+        int goodAnswers = user.getGoodAnswers();
+        goodAnswers++;
+        user.setGoodAnswers(goodAnswers);
         int questionPosition = questionPositions(questionPositions,questionList,topic).intValue();
         if (questionList.size()>0){
             questionList.remove(questionPosition);
@@ -124,4 +127,23 @@ public class UserService {
             result.put(entry.getKey(), entry.getValue().size());}
         return result;
     }
+
+    public LinkedHashMap<String, Integer> getTopUsersMap(Long id) {
+        int pageSize = 10;
+        Pageable pageable = PageRequest.of(0, pageSize, Sort.by(Sort.Direction.DESC, "goodAnswers"));
+
+        return finAll(pageable).getContent().stream()
+                .collect(Collectors.toMap(
+                        User::getNikName,
+                        User::getGoodAnswers,
+                        (oldVal, newVal) -> oldVal,  // обработка дубликатов (если nikName повторяется)
+                        LinkedHashMap::new  // сохраняет порядок сортировки
+                ));
+    }
+
+    private Page<User> finAll(Pageable pageable)
+    {
+        return userRepository.findAll(pageable);
+    }
+
 }

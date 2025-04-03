@@ -1,6 +1,7 @@
 package com.javarush.stepanov.service;
 
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,8 @@ public class QuestionService {
     private final   Map<String, List<String>> allAnswersByTopic;
     private final   String questionsPath ;
     private final  Integer startAnswerPosition;
+    @Getter
+    private final int questionsSize;
 
     public QuestionService(@Value("${com.javarush.questionsPath}") String questionsPath,
                            @Value("${com.javarush.startAnswerPosition}") int startAnswerPosition) {
@@ -29,6 +32,8 @@ public class QuestionService {
         allAnswersQuestionsMapByTopic = createAllAnswersQuestionsMapByTopic();
         allAnswersByTopic = createAllAnsersMapByTopic();
         allAnswersQuestions = createAllAnswersQuestions();
+        questionsSize = allAnswersQuestions.size();
+        System.out.println();
     }
 
     private Map<String, String> parseDocument(Path filePath) throws IOException {
@@ -119,10 +124,4 @@ public class QuestionService {
         return result;
     }
 
-    public Map<String,Integer> getTopicMap(){
-        Map<String,Integer> result = new HashMap<>();
-        for(Map.Entry<String,List<String>> entry : allAnswersByTopic.entrySet()){
-            result.put(entry.getKey(), entry.getValue().size());}
-        return result;
-    }
 }

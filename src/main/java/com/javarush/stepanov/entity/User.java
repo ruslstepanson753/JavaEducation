@@ -34,4 +34,6 @@ public class User {
     private Map<String, Integer> questionPositions;
 
     private String topic;
+
+    private int goodAnswers =0;
 }

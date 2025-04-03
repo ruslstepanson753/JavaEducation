@@ -1,10 +1,51 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
-<header th:insert="blocks/header :: header"></header>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .content-block {
+            margin-bottom: 2rem;
+        }
+        .indented {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .list-item {
+            padding-left: 3rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
 <body>
+<div th:insert="blocks/header :: header"></div>
+
 <div class="container mt-5">
-    <h1>Домашняя страница</h1>
+    <div class="content-block">
+        <h2>О приложении</h2>
+        <div class="indented">
+            Это приложение написано с целью, чтобы начинающие java девелоперы могли готовиться к собеседованиям.
+            В приложении собрано 768 вопросов, разбитых по темам.
+        </div>
+        <div class="list-item">- предпочитаемую тему можно настроить</div>
+        <div class="list-item">- пользователь сам выбирает, на сколько хорошо он владеет вопросом</div>
+        <div class="list-item">- помеченные "знаю хорошо" вопросы удаляются из базы пользователя и далее не отображаются</div>
+    </div>
+
+    <div class="content-block">
+        <h2>Автор</h2>
+        <div class="indented">
+            Руслан Степанов
+        </div>
+        <div class="indented">
+            ученик Александра Хмелёва, выпускник академии JavaRush гр. Gorillaz
+        </div>
+    </div>
 </div>
-<body>
-<footer th:insert="blocks/footer :: footer"></footer>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
