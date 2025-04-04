@@ -3,7 +3,6 @@ package com.javarush.stepanov.service;
 import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -12,8 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,18 +40,12 @@ public class UserService {
     @Cacheable(key = "#login")
     public User getUserByLogin(String login) {
         User user = userRepository.findByLogin(login).orElse(null);
-        // Кэшируем и по ID через отдельный вызов
         cacheUserById(user);
         return user;
     }
-
+    @Transactional
     @CachePut(key = "#user.id")
     public User cacheUserById(User user) {
-        return user;
-    }
-
-    @CachePut(key = "#user.login")
-    public User cacheUserByLogin(User user) {
         return user;
     }
 
@@ -64,16 +55,9 @@ public class UserService {
             @CachePut(key = "#user.login")
     })
     public User saveUser(User user) {
-        // 1. Сначала обновляем кэш (синхронно)
-        //User cachedUser = new User(user); // Создаем копию для безопасности
-
-        // 2. Асинхронно сохраняем в БД (не ждем завершения)
         asyncUserSaver.saveAsync(user);
-
         return user;
     }
-
-
 
     public String getTopicById(Long id) {
         User user = getUserById(id);
@@ -93,34 +77,19 @@ public class UserService {
     public LinkedHashMap<String, Integer> getTopUsersMap(Long id) {
         int pageSize = 10;
         Pageable pageable = PageRequest.of(0, pageSize, Sort.by(Sort.Direction.DESC, "goodAnswers"));
-
         return finAll(pageable).getContent().stream()
                 .collect(Collectors.toMap(
                         User::getNikName,
                         User::getGoodAnswers,
-                        (oldVal, newVal) -> oldVal,  // обработка дубликатов (если nikName повторяется)
-                        LinkedHashMap::new  // сохраняет порядок сортировки
+                        (oldVal, newVal) -> oldVal,
+                        LinkedHashMap::new
                 ));
     }
 
-    private Page<User> finAll(Pageable pageable)
+    @Transactional
+    public Page<User> finAll(Pageable pageable)
     {
         return userRepository.findAll(pageable);
     }
-
 }
 
-@Component
-@RequiredArgsConstructor
- class AsyncUserSaver {
-    private final UserRepository userRepository;
-
-    @Async
-    public void saveAsync(User user) {
-        try {
-            userRepository.save(user);
-        } catch (Exception e) {
-            // Логирование ошибок
-        }
-    }
-}
