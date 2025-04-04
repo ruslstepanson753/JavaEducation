@@ -3,6 +3,7 @@ package com.javarush.stepanov.service;
 import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +26,7 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final AsyncUserSaver asyncUserSaver;
 
     @Override
     public String toString() {
@@ -33,12 +37,12 @@ public class UserService {
     @Transactional
     @Cacheable(key = "#id")
     public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow();
+        return userRepository.findById(id).orElse(null);
     }
     @Transactional
     @Cacheable(key = "#login")
     public User getUserByLogin(String login) {
-        User user = userRepository.findByLogin(login).orElseThrow();
+        User user = userRepository.findByLogin(login).orElse(null);
         // Кэшируем и по ID через отдельный вызов
         cacheUserById(user);
         return user;
@@ -55,19 +59,18 @@ public class UserService {
     }
 
     @Transactional
-    @Caching(
-            put = {
-                    @CachePut(key = "#user.id"),
-                    @CachePut(key = "#user.login")
-            }
-    )
+    @Caching(put = {
+            @CachePut(key = "#user.id"),
+            @CachePut(key = "#user.login")
+    })
     public User saveUser(User user) {
-        System.out.println();
-        User savedUser = userRepository.save(user);
-        // Явно обновляем кэш по обоим ключам
-//        cacheUserById(savedUser);
-//        cacheUserByLogin(savedUser);
-        return savedUser;
+        // 1. Сначала обновляем кэш (синхронно)
+        //User cachedUser = new User(user); // Создаем копию для безопасности
+
+        // 2. Асинхронно сохраняем в БД (не ждем завершения)
+        asyncUserSaver.saveAsync(user);
+
+        return user;
     }
 
 
@@ -105,4 +108,19 @@ public class UserService {
         return userRepository.findAll(pageable);
     }
 
+}
+
+@Component
+@RequiredArgsConstructor
+ class AsyncUserSaver {
+    private final UserRepository userRepository;
+
+    @Async
+    public void saveAsync(User user) {
+        try {
+            userRepository.save(user);
+        } catch (Exception e) {
+            // Логирование ошибок
+        }
+    }
 }

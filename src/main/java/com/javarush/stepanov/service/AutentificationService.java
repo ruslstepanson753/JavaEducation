@@ -28,9 +28,4 @@ public class AutentificationService extends AbstractVerification {
         return !user.getPassword().equals(password);
     }
 
-    public static class AuthenticationException extends RuntimeException {
-        public AuthenticationException(String message) {
-            super(message);
-        }
-    }
 }
