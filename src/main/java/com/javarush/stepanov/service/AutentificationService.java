@@ -6,26 +6,31 @@ import com.javarush.stepanov.util.CookieHelp;
 import jakarta.servlet.http.Cookie;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import jakarta.servlet.http.Cookie;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 @Transactional
-public class AutentificationService {
-    UserRepository userRepository;
+public class AutentificationService extends AbstractVerification {
+
+    private final UserRepository userRepository;
+
     public Cookie autentificate(String login, String passwordFromView) {
-        Optional<User> userOptional = userRepository.findByLogin(login);
-        User user = userOptional.orElseThrow(() -> new RuntimeException("User not found"));
-        String password = user.getPassword();
-        if (!password.equals(passwordFromView)) {
-            throw new RuntimeException("Wrong password");
+        User user = userRepository.findByLogin(login).orElse(null);
+        return CookieHelp.createCookie(user.getNikName(), user.getId());
+    }
+
+    public boolean loginOrPasswordIsIncorrect(String login, String password) {
+        User user = userRepository.findByLogin(login).orElse(null);
+        if (user == null) {
+            return true;
         }
-        String nikName = user.getNikName();
-        Long id = user.getId();
-        Cookie cookie = CookieHelp.createCookie(nikName,id);
-        return cookie;
+        return !user.getPassword().equals(password);
+    }
+
+    public static class AuthenticationException extends RuntimeException {
+        public AuthenticationException(String message) {
+            super(message);
+        }
     }
 }

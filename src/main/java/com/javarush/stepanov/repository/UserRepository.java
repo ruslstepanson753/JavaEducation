@@ -17,5 +17,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     Optional<User> findByLogin(String login);
 
-
+    @Transactional
+    Optional<User> findByNikName(String nikName);
 }

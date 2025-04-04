@@ -33,7 +33,6 @@ public class QuestionService {
         allAnswersByTopic = createAllAnsersMapByTopic();
         allAnswersQuestions = createAllAnswersQuestions();
         questionsSize = allAnswersQuestions.size();
-        System.out.println();
     }
 
     private Map<String, String> parseDocument(Path filePath) throws IOException {

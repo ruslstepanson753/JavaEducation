@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class RegistrationService {
+public class RegistrationService extends AbstractVerification {
     private final UserRepository userRepository;
     private final QuestionService questionService;
     @Value("${com.javarush.startTopic}")
@@ -39,5 +39,17 @@ public class RegistrationService {
         Long id = user.getId();
         Cookie cookie = CookieHelp.createCookie(nikName,id);
         return cookie;
+    }
+
+    public boolean isExistLogin(String login) {
+        User user = userRepository.findByLogin(login).orElse(null);
+        if (user != null) return true;
+        return false;
+    }
+
+    public boolean isExistNikName(String nikName) {
+        User user = userRepository.findByNikName(nikName).orElse(null);
+        if (user != null) return true;
+        return false;
     }
 }

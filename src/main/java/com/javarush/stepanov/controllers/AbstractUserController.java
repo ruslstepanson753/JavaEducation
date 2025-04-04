@@ -10,4 +10,5 @@ public abstract class AbstractUserController {
         Long userId = CookieHelp.getUserIdFromCookies(cookies);
         return userId;
     }
+
 }

@@ -14,11 +14,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AutentificationController {
     AutentificationService autentificationService;
+
     @PostMapping("/autentification")
     public String autentification(@RequestParam String login,
                                   @RequestParam String password,
                                   HttpServletRequest request,
                                   HttpServletResponse response)  {
+
+        if ((autentificationService.fieldIsEmpty(login,password))) {
+            request.setAttribute("error","Есть незаполненные поля");
+            return "/autentification";
+        } else if (autentificationService.loginOrPasswordIsIncorrect(login, password)) {
+            request.setAttribute("error","Неверный логин или пароль");
+            return "/autentification";
+        }
         Cookie cookie = autentificationService.autentificate(login,password);
         response.addCookie(cookie);
         return "redirect:/home";

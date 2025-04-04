@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="10. MVC settings">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/HallOfFameController.java" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="10. MVC home">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Dto/LoginForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/filter/ErrorCleanerFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AbstractVerification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/AbstractUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/AbstractUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/AutentificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/AutentificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AutentificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AutentificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blocks/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hall-of-fame.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hall-of-fame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/autentification.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/autentification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="8880ecfaab761a3fff343d09257ccc24e48ed440" />
+        <entry key="$PROJECT_DIR$" value="3a020d60684e651c911074195746462c53e94337" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,11 +79,10 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.Application.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/Java Education/src/main/resources/templates/blocks",
+    "last_opened_file_path": "C:/projects/Java Education",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -100,10 +101,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\Java Education\src\main\java\com\javarush\stepanov" />
       <recent name="C:\projects\Java Education\src\main\resources\templates\blocks" />
       <recent name="C:\projects\Java Education\src\main\resources\templates" />
       <recent name="C:\projects\Java Education\src\main\resources" />
-      <recent name="C:\projects\Java Education\src\main\java\com\javarush\stepanov" />
       <recent name="C:\projects\Java Education\src\main\resources\questions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -175,10 +176,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application" />
-        <item itemvalue="Application.Application" />
         <item itemvalue="Database Script.init.sql" />
-        <item itemvalue="Application.com.javarush.stepanov.service.QuestionService" />
         <item itemvalue="Application.QuestionService" />
+        <item itemvalue="Application.com.javarush.stepanov.service.QuestionService" />
+        <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +207,8 @@
       <workItem from="1743584022086" duration="23133000" />
       <workItem from="1743614800776" duration="19351000" />
       <workItem from="1743636842908" duration="10735000" />
-      <workItem from="1743674242394" duration="12521000" />
+      <workItem from="1743674242394" duration="20041000" />
+      <workItem from="1743709553721" duration="4569000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -344,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743675867282</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="10. MVC home">
+      <option name="closed" value="true" />
+      <created>1743689363239</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743689363239</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,15 +391,16 @@
     <MESSAGE value="9. MVC run question answer full" />
     <MESSAGE value="9. MVC run full refactoring" />
     <MESSAGE value="10. MVC settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="10. MVC settings" />
+    <MESSAGE value="10. MVC home" />
+    <option name="LAST_COMMIT_MESSAGE" value="10. MVC home" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/QuestionService.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
