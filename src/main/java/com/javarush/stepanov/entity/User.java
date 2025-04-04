@@ -3,6 +3,8 @@ package com.javarush.stepanov.entity;
 import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +19,7 @@ import org.hibernate.type.SqlTypes;
 @Builder
 @ToString
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

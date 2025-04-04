@@ -3,6 +3,7 @@ package com.javarush.stepanov.service;
 import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -29,7 +30,7 @@ public class UserService {
     }
 
     public Map.Entry<String, String> getQuestionAnswerEntryById(Long id) {
-        User user = getUser(id);
+        User user = getUserById(id);
         Map<String, List<String>> questions = user.getQuestions();
         String topic = user.getTopic();
         List<String> questionList = questions.get(topic);
@@ -46,7 +47,7 @@ public class UserService {
     }
 
     public void answerProcessing(Long userId, String qoodAnswer) {
-        User user = getUser(userId);
+        User user = getUserById(userId);
         Map<String, List<String>> questions = user.getQuestions();
         String topic = user.getTopic();
         List<String> questionList = questions.get(topic);
@@ -101,26 +102,34 @@ public class UserService {
         }
     }
 
-    private User getUser(Long id) {
+    @Cacheable(value = "users", key = "#id")
+    public User getUserById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         User user = userOptional.orElseThrow();
         return user;
     }
 
+    @Cacheable(value = "userslogin", key = "#login")
+    public User getUserByLogin(String login) {
+        Optional<User> userOptional = userRepository.findByLogin(login);
+        User user = userOptional.orElse(null);
+        return user;
+    }
+
     public String getTopicById(Long id) {
-        User user = getUser(id);
+        User user = getUserById(id);
         String topic = user.getTopic();
         return topic;
     }
 
     public void updateUserTopic(Long id, String topic) {
-        User user = getUser(id);
+        User user = getUserById(id);
         user.setTopic(topic);
         userRepository.save(user);
     }
 
     public Map<String,Integer> getTopicMap(Long id){
-        User user = getUser(id);
+        User user = getUserById(id);
         Map<String,Integer> result = new HashMap<>();
         Map<String,List<String>> questions = user.getQuestions();
         for(Map.Entry<String,List<String>> entry : questions.entrySet()){

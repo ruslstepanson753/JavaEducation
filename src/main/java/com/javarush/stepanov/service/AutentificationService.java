@@ -13,15 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AutentificationService extends AbstractVerification {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     public Cookie autentificate(String login, String passwordFromView) {
-        User user = userRepository.findByLogin(login).orElse(null);
+        User user = userService.getUserByLogin(login);
         return CookieHelp.createCookie(user.getNikName(), user.getId());
     }
 
     public boolean loginOrPasswordIsIncorrect(String login, String password) {
-        User user = userRepository.findByLogin(login).orElse(null);
+        User user = userService.getUserByLogin(login);
         if (user == null) {
             return true;
         }
