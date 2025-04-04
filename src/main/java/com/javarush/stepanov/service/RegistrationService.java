@@ -20,6 +20,7 @@ import java.util.Map;
 @Transactional
 public class RegistrationService extends AbstractVerification {
     private final UserRepository userRepository;
+    private final UserService userService;
     private final QuestionService questionService;
     @Value("${com.javarush.startTopic}")
     private String startTopic;
@@ -42,7 +43,7 @@ public class RegistrationService extends AbstractVerification {
     }
 
     public boolean isExistLogin(String login) {
-        User user = userRepository.findByLogin(login).orElse(null);
+        User user = userService.getUserByLogin(login);
         if (user != null) return true;
         return false;
     }

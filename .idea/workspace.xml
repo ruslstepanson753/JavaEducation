@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="11. MVC verification">
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="12. MVC redis join">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RunService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AutentificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/AutentificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/RunController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/controllers/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +91,9 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\projects\Java Education\src\main\java\com\javarush\stepanov" />
@@ -202,7 +203,7 @@
       <workItem from="1743614800776" duration="19351000" />
       <workItem from="1743636842908" duration="10735000" />
       <workItem from="1743674242394" duration="20041000" />
-      <workItem from="1743709553721" duration="9634000" />
+      <workItem from="1743709553721" duration="18340000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -356,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743758883567</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="12. MVC redis join">
+      <option name="closed" value="true" />
+      <created>1743767109381</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1743767109381</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,17 +404,7 @@
     <MESSAGE value="10. MVC settings" />
     <MESSAGE value="10. MVC home" />
     <MESSAGE value="11. MVC verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="11. MVC verification" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="12. MVC redis join" />
+    <option name="LAST_COMMIT_MESSAGE" value="12. MVC redis join" />
   </component>
 </project>

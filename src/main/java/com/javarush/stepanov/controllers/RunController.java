@@ -1,8 +1,6 @@
 package com.javarush.stepanov.controllers;
 
-import com.javarush.stepanov.service.UserService;
-import com.javarush.stepanov.util.CookieHelp;
-import jakarta.servlet.http.Cookie;
+import com.javarush.stepanov.service.RunService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,12 +14,12 @@ import java.util.Map;
 @AllArgsConstructor
 @Controller
 public class RunController extends AbstractUserController{
-    UserService userService;
+    RunService runService;
 
     @GetMapping("/run")
     public String run(HttpServletRequest request) {
         Long userId = getUserId(request);
-        Map.Entry<String,String> questionAnswerSet= userService.getQuestionAnswerEntryById(userId);
+        Map.Entry<String,String> questionAnswerSet= runService.getQuestionAnswerEntryById(userId);
         request.setAttribute("question", questionAnswerSet.getKey());
         request.setAttribute("answer", questionAnswerSet.getValue());
         return "run";
@@ -31,7 +29,7 @@ public class RunController extends AbstractUserController{
     public String runPost(HttpServletRequest request) {
         Long userId = getUserId(request);
         String qoodAnswer = request.getParameter("good-answer");
-        userService.answerProcessing(userId,qoodAnswer);
+        runService.answerProcessing(userId,qoodAnswer);
         return "redirect:/run";
     }
 

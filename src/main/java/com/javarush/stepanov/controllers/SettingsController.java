@@ -1,5 +1,6 @@
 package com.javarush.stepanov.controllers;
 
+import com.javarush.stepanov.entity.User;
 import com.javarush.stepanov.service.QuestionService;
 import com.javarush.stepanov.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,7 +33,15 @@ public class SettingsController extends AbstractUserController {
     @PostMapping("/settings")
     public String updateTopic(@RequestParam String topic, HttpServletRequest request) {
         Long userId = getUserId(request);
-        userService.updateUserTopic(userId, topic);
+        updateUserTopic(userId, topic);
         return "redirect:/settings";
     }
+
+    public void updateUserTopic(Long id, String topic) {
+        User user = userService.getUserById(id);
+        user.setTopic(topic);
+        userService.saveUser(user);
+    }
+
+
 }
