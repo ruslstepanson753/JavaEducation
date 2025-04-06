@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="13. MVC view html correct">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="1 docker start">
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/JavaEducationApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +31,7 @@
       <list>
         <option value="HTML File" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -36,12 +49,16 @@
     &quot;assignee&quot;: &quot;ruslstepanson753&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ruslstepanson753/JavaEducation.git&quot;,
-    &quot;accountId&quot;: &quot;304f5923-aa98-42df-83eb-920dc92c8a9f&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ruslstepanson753/JavaEducation.git",
+    "accountId": "05523469-e1cf-4364-8b5e-dea70fe211a3"
   }
-}</component>
+}]]></component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -62,6 +79,8 @@
     "Application.RunApp.executor": "Debug",
     "Application.com.javarush.stepanov.service.QuestionService.executor": "Debug",
     "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.Dockerfile.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "Maven.java-education [clean].executor": "Run",
     "Maven.java-education [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -73,15 +92,16 @@
     "Spring Boot.Application.executor": "Run",
     "git-widget-placeholder": "docker",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/Java Education",
+    "last_opened_file_path": "C:/projects/JavaEducation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -95,13 +115,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\JavaEducation" />
       <recent name="C:\projects\Java Education\src\main\java\com\javarush\stepanov" />
       <recent name="C:\projects\Java Education\src\main\resources\templates\blocks" />
       <recent name="C:\projects\Java Education\src\main\resources\templates" />
       <recent name="C:\projects\Java Education\src\main\resources" />
-      <recent name="C:\projects\Java Education\src\main\resources\questions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\JavaEducation" />
       <recent name="C:\projects\Java Education\src\main\resources\templates" />
       <recent name="C:\projects\Java Education\src\main\resources\info" />
     </key>
@@ -109,20 +130,7 @@
       <recent name="com.javarush.stepanov" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.javarush.stepanov.Application" />
-      <module name="java-education" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.javarush.stepanov.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Docker.Dockerfile">
     <configuration name="QuestionService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stepanov.service.QuestionService" />
       <module name="java-education" />
@@ -136,27 +144,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.javarush.stepanov.service.QuestionService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.javarush.stepanov.service.QuestionService" />
-      <module name="java-education" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.javarush.stepanov.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="init.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/init.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="JavaEducationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="java-education" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.javarush.stepanov.Application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.javarush.stepanov.JavaEducationApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.javarush.stepanov.*" />
@@ -167,13 +162,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Spring Boot.JavaEducationApplication" />
         <item itemvalue="Database Script.init.sql" />
         <item itemvalue="Application.QuestionService" />
-        <item itemvalue="Application.com.javarush.stepanov.service.QuestionService" />
-        <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +224,7 @@
       <workItem from="1743636842908" duration="10735000" />
       <workItem from="1743674242394" duration="20041000" />
       <workItem from="1743709553721" duration="26419000" />
+      <workItem from="1743972242412" duration="7715000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -380,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743797817618</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="1 docker start">
+      <option name="closed" value="true" />
+      <created>1743966120910</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1743966120910</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,6 +464,18 @@
     <MESSAGE value="12. MVC redis join" />
     <MESSAGE value="12. MVC redis cash" />
     <MESSAGE value="13. MVC view html correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="13. MVC view html correct" />
+    <MESSAGE value="1 docker start" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 docker start" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/javarush/stepanov/service/RunService.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

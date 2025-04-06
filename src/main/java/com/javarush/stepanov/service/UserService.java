@@ -59,6 +59,12 @@ public class UserService {
         return user;
     }
 
+    @Transactional
+    public User saveRegistrationUser(User user) {
+        userRepository.save(user);
+        return user;
+    }
+
     public String getTopicById(Long id) {
         User user = getUserById(id);
         String topic = user.getTopic();

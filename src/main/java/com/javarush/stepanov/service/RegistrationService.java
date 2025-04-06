@@ -36,14 +36,15 @@ public class RegistrationService extends AbstractVerification {
                 .questionPositions(questionPositions)
                 .topic(startTopic)
                 .build();
-        userRepository.save(user);
-        Long id = user.getId();
+        User userWithId = userService.saveRegistrationUser(user);
+        userService.saveUser(userWithId);
+        Long id = userWithId.getId();
         Cookie cookie = CookieHelp.createCookie(nikName,id);
         return cookie;
     }
 
     public boolean isExistLogin(String login) {
-        User user = userService.getUserByLogin(login);
+        User user = userRepository.findByLogin(login).orElse(null);
         if (user != null) return true;
         return false;
     }
