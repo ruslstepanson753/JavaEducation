@@ -10,8 +10,10 @@ spring:
     type: redis
   data:
     redis:
-      host: ${REDISHOST:redis.railway.internal}
-      port: 6379
+      host: ${REDISHOST}
+      port: ${REDISPORT}
+      password: ${REDISPASSWORD}
+      username: ${REDISUSER}
       time-to-live: 300000
   jpa:
     hibernate:
