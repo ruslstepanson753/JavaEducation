@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment=" 9 docker railway">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment=" 12 docker railway">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="4de75682b90ad6b555b0a4203489fd639ba7cf2d" />
+        <entry key="$PROJECT_DIR$" value="docker" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +85,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.Application.executor": "Run",
     "Spring Boot.JavaEducationApplication.executor": "Run",
-    "git-widget-placeholder": "docker",
+    "git-widget-placeholder": "60601734",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/projects/JavaEducation",
     "node.js.detected.package.eslint": "true",
@@ -223,7 +223,7 @@
       <workItem from="1743709553721" duration="26419000" />
       <workItem from="1743972242412" duration="9748000" />
       <workItem from="1744016394848" duration="1322000" />
-      <workItem from="1744018615365" duration="9401000" />
+      <workItem from="1744018615365" duration="12415000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -473,7 +473,31 @@
       <option name="project" value="LOCAL" />
       <updated>1744029105725</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary=" 10 docker railway">
+      <option name="closed" value="true" />
+      <created>1744029260850</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1744029260850</updated>
+    </task>
+    <task id="LOCAL-00033" summary=" 11 docker railway">
+      <option name="closed" value="true" />
+      <created>1744029474403</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1744029474403</updated>
+    </task>
+    <task id="LOCAL-00034" summary=" 12 docker railway">
+      <option name="closed" value="true" />
+      <created>1744029817617</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1744029817617</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,10 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="8. MVC autentification form" />
-    <MESSAGE value="8. MVC autorization save" />
-    <MESSAGE value="8. MVC autentification" />
-    <MESSAGE value="8. MVC exit" />
     <MESSAGE value="8. MVC controller refactoring" />
     <MESSAGE value="8. MVC run get entry question answer" />
     <MESSAGE value="8. MVC run question answer parsing refactor" />
@@ -527,8 +547,12 @@
     <MESSAGE value="6 docker railway" />
     <MESSAGE value=" 7 docker railway" />
     <MESSAGE value=" 8 docker railway" />
+    <MESSAGE value="10 docker railway" />
     <MESSAGE value=" 9 docker railway" />
-    <option name="LAST_COMMIT_MESSAGE" value=" 9 docker railway" />
+    <MESSAGE value=" 10 docker railway" />
+    <MESSAGE value=" 11 docker railway" />
+    <MESSAGE value=" 12 docker railway" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 12 docker railway" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
