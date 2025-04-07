@@ -16,7 +16,7 @@ import java.util.Map;
 public class RunController extends AbstractUserController{
     RunService runService;
 
-    @GetMapping("/run")
+    @GetMapping("run")
     public String run(HttpServletRequest request) {
         Long userId = getUserId(request);
         Map.Entry<String,String> questionAnswerSet= runService.getQuestionAnswerEntryById(userId);
@@ -25,12 +25,12 @@ public class RunController extends AbstractUserController{
         return "run";
     }
 
-    @PostMapping("/run")
+    @PostMapping("run")
     public String runPost(HttpServletRequest request) {
         Long userId = getUserId(request);
         String qoodAnswer = request.getParameter("good-answer");
         runService.answerProcessing(userId,qoodAnswer);
-        return "redirect:/run";
+        return "redirect:run";
     }
 
 

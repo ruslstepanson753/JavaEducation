@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class RegistrationController {
     RegistrationService registrationService;
-    @GetMapping("/registration")
+    @GetMapping("registration")
     public String showRegistrationPage() {
         return "registration"; // предполагается, что у вас есть registration.html
     }
 
-    @PostMapping("/registration")
+    @PostMapping("registration")
     public String registration(@RequestParam String login,
                                @RequestParam String password,
                                @RequestParam String nikName,
@@ -28,18 +28,18 @@ public class RegistrationController {
                                HttpServletRequest request) {
         if ((registrationService.fieldIsEmpty(login,password))) {
             request.setAttribute("error","Есть незаполненные поля");
-            return "/registration";
+            return "registration";
         } else if (registrationService.isExistLogin(login)) {
             request.setAttribute("error","Такой логин уже используется");
-            return "/registration";
+            return "registration";
         } else if (registrationService.isExistNikName(nikName)) {
             request.setAttribute("error","Такое имя уже используется");
-            return "/registration";
+            return "registration";
         }
         Cookie cookie = registrationService.register(login, password, nikName);
         response.addCookie(cookie);
         Long id = CookieHelp.getUserIdFromCookie(cookie);
         System.out.println(id);
-        return "redirect:/home";
+        return "redirect:home";
     }
 }

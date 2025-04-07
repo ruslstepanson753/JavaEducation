@@ -19,7 +19,7 @@ public class SettingsController extends AbstractUserController {
     QuestionService questionService;
     UserService userService;
 
-    @GetMapping("/settings")
+    @GetMapping("settings")
     public String settings(HttpServletRequest request, Model model) {
         Long id = getUserId(request);
         Map<String,Integer> topicSet = userService.getTopicMap(id);
@@ -30,11 +30,11 @@ public class SettingsController extends AbstractUserController {
         return "settings";
     }
 
-    @PostMapping("/settings")
+    @PostMapping("settings")
     public String updateTopic(@RequestParam String topic, HttpServletRequest request) {
         Long userId = getUserId(request);
         updateUserTopic(userId, topic);
-        return "redirect:/settings";
+        return "redirect:settings";
     }
 
     public void updateUserTopic(Long id, String topic) {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ExitController {
 
-    @GetMapping("/exit")
+    @GetMapping("exit")
     public String exit(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -23,6 +23,6 @@ public class ExitController {
             }
         }
         request.getSession().invalidate();
-        return "redirect:/";
+        return "redirect:";
     }
 }

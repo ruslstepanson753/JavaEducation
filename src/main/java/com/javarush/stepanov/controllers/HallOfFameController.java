@@ -13,7 +13,7 @@ import java.util.SortedMap;
 @Controller
 public class HallOfFameController extends AbstractUserController {
 UserService userService;
-    @GetMapping(value = "/hall-of-fame")
+    @GetMapping(value = "hall-of-fame")
     public String hallOfFame(HttpServletRequest req) {
         Long id = getUserId(req);
         LinkedHashMap<String,Integer> topUsersMap = userService.getTopUsersMap(id);
