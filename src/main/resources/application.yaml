@@ -10,7 +10,7 @@ spring:
     type: redis
   data:
     redis:
-      host: ${SPRING_REDIS_HOST:redis.railway.internal}
+      host: ${REDISHOST:redis.railway.internal}
       port: 6379
       time-to-live: 300000
   jpa:
