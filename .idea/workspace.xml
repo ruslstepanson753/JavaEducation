@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="6 docker railway" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment=" 8 docker railway">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/stepanov/repository/UserRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +224,7 @@
       <workItem from="1743709553721" duration="26419000" />
       <workItem from="1743972242412" duration="9748000" />
       <workItem from="1744016394848" duration="1322000" />
-      <workItem from="1744018615365" duration="7447000" />
+      <workItem from="1744018615365" duration="9079000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -447,7 +450,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744026449924</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary=" 7 docker railway">
+      <option name="closed" value="true" />
+      <created>1744027030886</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1744027030886</updated>
+    </task>
+    <task id="LOCAL-00030" summary=" 8 docker railway">
+      <option name="closed" value="true" />
+      <created>1744028013996</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1744028013996</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,8 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="7. MVC start" />
-    <MESSAGE value="7. MVC header works" />
     <MESSAGE value="8. MVC login form" />
     <MESSAGE value="8. MVC autentification form" />
     <MESSAGE value="8. MVC autorization save" />
@@ -502,7 +519,9 @@
     <MESSAGE value="4 docker railway" />
     <MESSAGE value="5 docker railway" />
     <MESSAGE value="6 docker railway" />
-    <option name="LAST_COMMIT_MESSAGE" value="6 docker railway" />
+    <MESSAGE value=" 7 docker railway" />
+    <MESSAGE value=" 8 docker railway" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 8 docker railway" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

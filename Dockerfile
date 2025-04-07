@@ -10,6 +10,7 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.jar app.jar
 COPY src/main/resources/questions /app/questions/
+COPY src/main/resources/templates /app/templates/
 
 EXPOSE 8080
 
