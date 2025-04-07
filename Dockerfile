@@ -15,9 +15,9 @@ EXPOSE 8080
 
 # Установите переменные окружения по умолчанию
 ENV COM_JAVARUSH_QUESTIONSPATH=/app/questions
-ENV SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/postgres
-ENV SPRING_DATASOURCE_USERNAME=postgres
-ENV SPRING_DATASOURCE_PASSWORD=postgres
-ENV SPRING_REDIS_HOST=host.docker.internal
+ENV DATABASE_URL=jdbc:postgresql://host.docker.internal:5432/postgres
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+ENV REDISHOST=host.docker.internal
 
 ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="2 docker compose run">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="5dc4d0de-b8fc-4553-b9f9-bdcf58b3b048" name="Changes" comment="3 docker without compose run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +225,7 @@
       <workItem from="1743709553721" duration="26419000" />
       <workItem from="1743972242412" duration="9748000" />
       <workItem from="1744016394848" duration="1322000" />
-      <workItem from="1744018615365" duration="4323000" />
+      <workItem from="1744018615365" duration="6339000" />
     </task>
     <task id="LOCAL-00001" summary="1. Start parsing">
       <option name="closed" value="true" />
@@ -421,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743980201662</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="3 docker without compose run">
+      <option name="closed" value="true" />
+      <created>1744023173891</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1744023173891</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +457,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="3. QuestionService done" />
     <MESSAGE value="4. Pars all" />
     <MESSAGE value="5. Pars all works" />
     <MESSAGE value="6. Spring DB connect" />
@@ -476,7 +481,8 @@
     <MESSAGE value="1 docker start" />
     <MESSAGE value="1 docker compose run" />
     <MESSAGE value="2 docker compose run" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 docker compose run" />
+    <MESSAGE value="3 docker without compose run" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 docker without compose run" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
