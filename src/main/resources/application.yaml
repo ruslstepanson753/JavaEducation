@@ -2,7 +2,7 @@ spring:
   application:
     name: java-education
   datasource:
-    url: ${DATABASE_URL:postgresql://postgres:XoDAAoldFEoPqagDVzCeHDpiyWmfVvpj@tramway.proxy.rlwy.net:59100/railway}
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?sslmode=require
     username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
