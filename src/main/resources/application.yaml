@@ -2,7 +2,7 @@ spring:
   application:
     name: java-education
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
+    url: ${DATABASE_URL:postgresql://postgres:XoDAAoldFEoPqagDVzCeHDpiyWmfVvpj@tramway.proxy.rlwy.net:59100/railway}
     username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
@@ -10,7 +10,7 @@ spring:
     type: redis
   data:
     redis:
-      host: ${SPRING_REDIS_HOST:localhost}
+      host: ${SPRING_REDIS_HOST:redis.railway.internal}
       port: 6379
       time-to-live: 300000
   jpa:
@@ -22,6 +22,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 com:
   javarush:
-    questionsPath: ${COM_JAVARUSH_QUESTIONSPATH:./src/main/resources/questions}
+    questionsPath: ${COM_JAVARUSH_QUESTIONSPATH:/app/questions}
     startAnswerPosition: 0
     startTopic: core

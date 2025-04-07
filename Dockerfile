@@ -15,9 +15,9 @@ EXPOSE 8080
 
 # Установите переменные окружения по умолчанию
 ENV COM_JAVARUSH_QUESTIONSPATH=/app/questions
-ENV DATABASE_URL=jdbc:postgresql://host.docker.internal:5432/postgres
+ENV DATABASE_URL=postgresql://postgres:XoDAAoldFEoPqagDVzCeHDpiyWmfVvpj@tramway.proxy.rlwy.net:59100/railway
 ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=postgres
-ENV REDISHOST=host.docker.internal
+ENV POSTGRES_PASSWORD=XoDAAoldFEoPqagDVzCeHDpiyWmfVvpj
+ENV REDISHOST=redis.railway.internal
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
